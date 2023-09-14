@@ -52,7 +52,7 @@ par(mfrow=c(1,1),mar=c(4,13,2,2),mgp=c(2.7,1,0),oma=c(1,7,0,0))
 plot(beta_out$X50.[c(28,27,2:12,21:26,20,13:19)],
      seq(from=1,to=27),
      xlim=c(-0.53,max(beta_out$X97.5.[2:nrow(beta_out)])),
-     xlab=expression(beta),ylab='',yaxt='n',cex.axis=1.5,cex.lab=2.1,bty='l')
+     xlab="Effect on Herbivore Biomass",ylab='',yaxt='n',cex.axis=1.5,cex.lab=1.8,bty='l')
 
 axis(2,at=seq(from=1,to=27),labels=labs[c(28,27,2:12,21:26,20,13:19)],las=2,cex.axis=1.3,cex.lab=1.8)
 
