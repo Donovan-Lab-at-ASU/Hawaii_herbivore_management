@@ -129,9 +129,10 @@ moku_sum$colgo[moku_sum$mean_noSand >= quantile(moku_sum$mean_noSand,0.75)] <- r
 moku_sum$colgo[moku_sum$mean_noSand <= quantile(moku_sum$mean_noSand,0.25)] <- '#964336'
 
 indlab <- expression("Herbivore Biomass"~~bgroup("(",'g '*m^{-2},")"))
+moku_sum$moku_lab <- paste0(moku_sum$Moku_olelo," (",seq(1:43),")")
 
 png(file=paste0('outputs/Figure3.png'),height=2300,width=1700,res=200)
-par(mfrow=c(1,1),mar=c(5,9,1,1),oma=c(0,0,0,0))
+par(mfrow=c(1,1),mar=c(5,10,1,1),oma=c(0,0,0,0))
 bp <- barplot((rev(moku_sum$mean_noSand)),border=F,names.arg=rep("",nrow(moku_sum))
               ,col='white',space=.3,xlim=c(0,max(moku_sum$up50_noSand)),
               ylab="",main="",cex.axis=1.2, horiz=T,xaxt='n')
@@ -141,12 +142,13 @@ barplot((rev(moku_sum$mean_noSand)),border=T,names.arg=rep("",nrow(moku_sum))
         ylab="",main="",cex.axis=1.2, horiz=T,xaxt='n',add=T)
 axis(1,las=1,cex.axis=1.2,mgp=c(1,0.7,0))
 plotrix::plotCI(rev(moku_sum$mean_noSand),bp, ui=rev(moku_sum$up50_noSand), li=rev(moku_sum$down50_noSand),add=T,err="x",pch=NA,sfrac=0.003)
-text(par("usr")[3] +1.5,bp, labels = rev(moku_sum$Moku_olelo), pos = 2, xpd = TRUE)
+text(par("usr")[3] +3,bp, labels = rev(moku_sum$moku_lab), pos = 2, xpd = TRUE)
 mtext(indlab,side=1,outer=F,cex=1.3,line=3)
 xb <- ((mlcd$up50_noSand - mlcd$down50_noSand)/2) + mlcd$down50_noSand
 text(xb,bp[2]+0.5,'Predicted biomass in MLCDs',col='grey10',pos=1,font=3,cex=0.9)
 dev.off()
 
+write.csv(moku_sum %>% dplyr::select(moku_ind,mean,Moku_olelo,colgo,moku_lab) %>% mutate(order=seq(1:43)) %>% left_join(moku_order_use,by='moku_ind'),"outputs/moku_order_forFig3.csv",row.names=F)
 
 # predicted raster --------------------------------------------------------
 
