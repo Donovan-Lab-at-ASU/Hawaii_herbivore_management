@@ -21,4 +21,4 @@ This work analyzes data from the Hawaii Monitoring and Reporting Collaborative (
 * **4_case_studies.R:** R script with analyses of parrotfish biomass across four fisheries management actions
 
 #### /data:
-Data files with herbivore and benthic surveys from the [Hawaii Monitoring and Reporting Collaborative (HIMARC)](himarc.org)
+Data files with herbivore and benthic surveys from the [Hawaii Monitoring and Reporting Collaborative (HIMARC)](https://www.himarc.org/)
