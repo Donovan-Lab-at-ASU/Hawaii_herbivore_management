@@ -17,6 +17,7 @@ This work analyzes data from the Hawaii Monitoring and Reporting Collaborative (
 * **1b_herbivore_driver_model_plot.R:** R script that reads in output of 1_herbivore_driver_model.R and creates figures and tables
 * **2_map_and_summarize_herbivores.R:** R script that reads in output of 1_herbivore_driver_model.R and creates predictive map and spatial summaries of posterior estimates
 * **3_herbivore-benthic.R:** R script for two analyses of herbivore-benthic relationships
+* **3b_fishing_herbivores_benthos.R:** R script for predictions of fishing-herbivore and heribvore-benthic patterns
 * **4_case_studies.R:** R script with analyses of parrotfish biomass across four fisheries management actions
 
 #### /data:
